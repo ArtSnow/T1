@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/admmai/T1/RouteService/web_server/handlers",
-      "program": "/home/admmai/T1/RouteService/web_server/handlers/build/Debug/outDebug",
+      "cwd": "/home/admmai/T1",
+      "program": "/home/admmai/T1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
