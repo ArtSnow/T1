@@ -128,7 +128,7 @@ public:
         try
         {
             if (hasSubstr(request.getURI(), "/user"))
-            {
+            {   
                 long id = atol(form.get("id").c_str());
                 bool no_cache = false;
                 if (form.has("no_cache")) no_cache = true;

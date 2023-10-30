@@ -75,12 +75,29 @@ public:
 
         try
         {
+            response.setStatus(Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
+            response.setChunkedTransferEncoding(true);
+            response.setContentType("application/json");
+            Poco::JSON::Object::Ptr root = new Poco::JSON::Object();
+            root->set("type", "/errors/not_found");
+            root->set("phone", "ABOBA");
+            root->set("status", Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
+            root->set("detail", "ABOBA");
+            root->set("instance", "/route");
+            std::ostream &ostr = response.send();
+            Poco::JSON::Stringifier::stringify(root, ostr);
+            return;
+
             std::string scheme;
             std::string info;
             request.getCredentials(scheme, info);
             std::string login, password, url;
             get_identity(info, login, password);
             url = "http://" + host +":8080/auth";
+
+
+
+
             if (do_get(url, login, password)){
                 if (hasSubstr(request.getURI(), "/add_route") &&
                     (request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST)&&
