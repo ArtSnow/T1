@@ -75,6 +75,7 @@ public:
 
         try
         {
+            1
             response.setStatus(Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
             response.setChunkedTransferEncoding(true);
             response.setContentType("application/json");
