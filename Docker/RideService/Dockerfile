@@ -6,5 +6,5 @@ RUN git clone -b master https://github.com/pocoproject/poco.git && cd poco && mk
 RUN git clone https://github.com/tdv/redis-cpp.git && cd redis-cpp && mkdir build && cd build && cmake .. && make && sudo make install && cd .. && cd ..
 RUN git clone https://github.com/ArtSnow/T1.git
 RUN sudo ldconfig
-RUN cd SoftwaerEngineering/RideService && mkdir build && cd build && cmake  .. && make
-ENTRYPOINT [ "SoftwaerEngineering/RideService/build/RideService" ]
+RUN cd T1/RideService && mkdir build && cd build && cmake  .. && make
+ENTRYPOINT [ "T1/RideService/build/RideService" ]
