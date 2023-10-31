@@ -90,7 +90,7 @@ public:
             root->set("type", "/errors/not_found");
             root->set("phone", "ABOBA");
             root->set("status", Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
-            root->set("detail", "ABOBA");
+            root->set("detail", "ABOBA2");
             root->set("instance", "/route");
             std::ostream &ostr = response.send();
             Poco::JSON::Stringifier::stringify(root, ostr);
