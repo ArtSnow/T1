@@ -75,6 +75,14 @@ public:
 
         try
         {
+
+            std::string scheme;
+            std::string info;
+            request.getCredentials(scheme, info);
+            std::string login, password, url;
+            get_identity(info, login, password);
+            url = "http://" + host +":8080/auth";
+
             response.setStatus(Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
             response.setChunkedTransferEncoding(true);
             response.setContentType("application/json");
@@ -87,15 +95,6 @@ public:
             std::ostream &ostr = response.send();
             Poco::JSON::Stringifier::stringify(root, ostr);
             return;
-
-            std::string scheme;
-            std::string info;
-            request.getCredentials(scheme, info);
-            std::string login, password, url;
-            get_identity(info, login, password);
-            url = "http://" + host +":8080/auth";
-
-
 
 
             if (do_get(url, login, password)){
