@@ -82,7 +82,7 @@ public:
             std::string login, password, url;
             get_identity(info, login, password);
             url = "http://" + host +":8080/auth";
-
+            s
             response.setStatus(Poco::Net::HTTPResponse::HTTPStatus::HTTP_NOT_FOUND);
             response.setChunkedTransferEncoding(true);
             response.setContentType("application/json");
